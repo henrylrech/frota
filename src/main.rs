@@ -1,8 +1,9 @@
 use rodio::{OutputStream, Source};
 use std::fs::File;
 use std::io::BufReader;
-use enigo::{Enigo, Mouse, Settings};
+use enigo::{Enigo, Mouse, Settings, Key};
 use enigo::Coordinate::Abs;
+use enigo::{Direction::{Click, Press, Release}, Keyboard};
 use std::{thread, time};
 
 fn main() {
@@ -16,13 +17,13 @@ fn main() {
         lock_mouse();
     });
 
-    let image_thread = thread::spawn(|| {
+    /*let image_thread = thread::spawn(|| {
         display_image();
-    });
-
-    let _ = audio_thread.join();
-    let _ = mouse_thread.join();
-    let _ = image_thread.join();
+    });*/
+    go_to_desktop();
+    //let _ = audio_thread.join();
+    //let _ = mouse_thread.join();
+    //let _ = image_thread.join();
 }
 
 fn play_uepa() {
@@ -46,6 +47,12 @@ fn lock_mouse() {
     }
 }
 
-fn display_image() {
-    image::open("assets/braia.jpg").expect("could not open brian");
+fn go_to_desktop() {
+    if cfg!(target_os = "windows") {
+        let mut enigo = Enigo::new(&Settings::default()).unwrap();
+
+        let _ = enigo.key(Key::Meta, Press);
+        let _ = enigo.key(Key::Unicode('d'), Click);
+        let _ = enigo.key(Key::Meta, Release);
+    }
 }
