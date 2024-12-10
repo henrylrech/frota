@@ -28,7 +28,7 @@ fn main() {
 fn play_uepa() {
     let (_stream, stream_handle) = OutputStream::try_default().expect("Failed to get default audio output stream");
 
-    let file = File::open("uepa.mp3").expect("Failed to open audio file");
+    let file = File::open("assets/uepa.mp3").expect("Failed to open audio file");
     let source = rodio::Decoder::new(BufReader::new(file)).expect("Failed to decode audio file");
 
     stream_handle.play_raw(source.convert_samples()).expect("Failed to play audio");
@@ -47,5 +47,5 @@ fn lock_mouse() {
 }
 
 fn display_image() {
-    image::open("braia.jpg").expect("could not open brian");
+    image::open("assets/braia.jpg").expect("could not open brian");
 }
