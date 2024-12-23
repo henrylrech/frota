@@ -7,7 +7,7 @@ use enigo::{Direction::{Click, Press, Release}, Keyboard};
 use std::{thread, time};
 
 fn main() {
-    //wallpaper::set_from_url("https://source.unsplash.com/random").unwrap();
+    wallpaper::set_from_url("https://i.redd.it/c7iaou1ua1b21.jpg").expect("could not change wallpaper"); // terry crewss
 
     let audio_thread = thread::spawn(|| {
         play_uepa();
@@ -17,13 +17,9 @@ fn main() {
         lock_mouse();
     });
 
-    /*let image_thread = thread::spawn(|| {
-        display_image();
-    });*/
     go_to_desktop();
-    //let _ = audio_thread.join();
-    //let _ = mouse_thread.join();
-    //let _ = image_thread.join();
+    let _ = audio_thread.join();
+    let _ = mouse_thread.join();
 }
 
 fn play_uepa() {
