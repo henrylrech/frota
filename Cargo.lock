@@ -646,6 +646,17 @@ dependencies = [
 ]
 
 [[package]]
+name = "frota"
+version = "1.0.0"
+dependencies = [
+ "enigo",
+ "image",
+ "rodio",
+ "wallpaper",
+ "winres",
+]
+
+[[package]]
 name = "futures-channel"
 version = "0.3.31"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1872,17 +1883,6 @@ name = "rust-ini"
 version = "0.12.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "ac66e816614e124a692b6ac1b8437237a518c9155a3aacab83a373982630c715"
-
-[[package]]
-name = "rust-winres"
-version = "0.1.0"
-dependencies = [
- "enigo",
- "image",
- "rodio",
- "wallpaper",
- "winres",
-]
 
 [[package]]
 name = "rustc-demangle"
