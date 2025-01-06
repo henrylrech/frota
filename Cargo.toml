@@ -9,6 +9,7 @@ wallpaper = { version = "3", features = ["from_url"] }
 rodio = "0.18.0"
 enigo = "0.2.0"
 image = "0.25.5"
+winapi = { version = "0.3", features = ["winuser"] }
 
 [build-dependencies]
 winres = "0.1"

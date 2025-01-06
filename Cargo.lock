@@ -653,6 +653,7 @@ dependencies = [
  "image",
  "rodio",
  "wallpaper",
+ "winapi",
  "winres",
 ]
 
